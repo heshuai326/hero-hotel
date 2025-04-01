@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  couchbase:
+    image: couchbase:community-7.1.1
+    container_name: couchbase-server
+    ports:
+      - "8091:8091"  # Web
+      - "8092:8092"  # REST
+      - "8093:8093"  # N1QL
+      - "8094:8094"  # 全文搜索服务
+      - "11210:11210"  # 客户端通信 (非加密)
+      - "11207:11207"  # 客户端通信 (加密)
+    environment:
+      - COUCHBASE_ADMINISTRATOR_USERNAME=admin
+      - COUCHBASE_ADMINISTRATOR_PASSWORD=123456
+      - COUCHBASE_BUCKET=hotel-bucket
+      - COUCHBASE_BUCKET_TYPE=couchbase  # Bucket 类型 (couchbase 或 ephemeral)
+      - COUCHBASE_BUCKET_RAMSIZE=256
+    volumes:
+      - couchbase-data:/opt/couchbase/var
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8091/pools"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  couchbase-data:

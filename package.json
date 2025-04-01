@@ -1,0 +1,52 @@
+{
+  "name": "hero-hotel",
+  "version": "1.0.0",
+  "description": "hotel system",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build --stream",
+    "build:docker": "lerna run build --stream",
+    "clean": "lerna run clean --stream --parallel && lerna clean --yes",
+    "prelint": "tsc -b packages/shared",
+    "lint": "lerna run lint --stream --parallel",
+    "format": "lerna run format --stream --parallel",
+    "prod": "lerna run prod --stream",
+    "ncu": "lerna run ncu --stream --parallel",
+    "start": "lerna run start --stream --parallel",
+    "test:unit": "lerna run test:unit --stream --parallel"
+  },
+  "keywords": [
+    "hotel"
+  ],
+  "author": "Andy",
+  "license": "ISC",
+  "dependencies": {
+    "is-ci": "3.0.1",
+    "lerna": "8.1.9",
+    "typescript": "5.7.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.0.1",
+    "@typescript-eslint/eslint-plugin": "6.14.0",
+    "@typescript-eslint/parser": "6.14.0",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-import-resolver-typescript": "3.7.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-react": "7.37.2",
+    "eslint-plugin-react-hooks": "5.0.0",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "husky": "8.0.3",
+    "jest": "29.7.0",
+    "lint-staged": "15.2.10",
+    "npm-check-updates": "17.1.11",
+    "prettier": "3.4.2",
+    "rimraf": "6.0.1",
+    "ts-jest": "29.2.5",
+    "tsc-watch": "6.2.1"
+  }
+}

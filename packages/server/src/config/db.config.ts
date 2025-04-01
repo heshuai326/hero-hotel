@@ -1,0 +1,20 @@
+export const dbConfig: any = {
+	connectionString: "couchbase://localhost",
+	username: "admin",
+	password: "123456",
+	bucketName: "hotel-bucket",
+	connectionTimeout: 10000,
+	operationTimeout: 7000,
+	kvTimeout: 2500,
+	viewTimeout: 75000,
+	queryTimeout: 75000,
+	maxParallelism: 8,
+	maxSocketIdleTime: 300000,
+	poolSize: 20,
+	enableMutationTokens: true,
+	compression: {
+		enabled: true,
+		minSize: 32,
+		minRatio: 0.83,
+	},
+}

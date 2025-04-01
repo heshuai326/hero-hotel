@@ -1,0 +1,80 @@
+{
+    "name": "server",
+    "version": "0.0.1",
+    "description": "hotel server",
+    "keywords": [
+        "loopback-application",
+        "loopback"
+    ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "engines": {
+        "node": "^16"
+    },
+    "scripts": {
+        "build": "lb-tsc",
+        "build:watch": "lb-tsc --watch",
+        "lint": "eslint -c ../../.eslintrc.js --ext .ts --fix --max-warnings 0 src",
+        "lint:fix": "npm run eslint:fix && npm run prettier:fix",
+        "format": "prettier --write . && npm run lint",
+        "pretest": "npm run rebuild",
+        "test:unit": "lb-mocha --allow-console-logs \"dist/__tests__\"",
+        "test": "npx cucumber-js --require-module ts-node/register --require src/__tests__/**/*.feature",
+        "posttest": "npm run lint",
+        "docker:build": "docker build -t server .",
+        "docker:run": "docker run -p 3000:3000 -d server",
+        "premigrate": "npm run build",
+        "migrate": "node ./dist/migrate",
+        "preopenapi-spec": "npm run build",
+        "openapi-spec": "node ./dist/openapi-spec",
+        "prestart": "npm run rebuild",
+        "start": "node -r source-map-support/register .",
+        "clean": "lb-clean dist *.tsbuildinfo .eslintcache",
+        "rebuild": "npm run clean && npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "author": "He, Andy <andy.he@adidas.com>",
+    "license": "",
+    "files": [
+        "README.md",
+        "dist",
+        "src",
+        "!*/__tests__"
+    ],
+    "dependencies": {
+        "@loopback/authentication": "^11.0.12",
+        "@loopback/authentication-jwt": "^0.15.12",
+        "@loopback/boot": "^7.0.12",
+        "@loopback/core": "^6.1.9",
+        "@loopback/graphql": "^0.11.12",
+        "@loopback/repository": "^7.0.12",
+        "@loopback/rest": "^14.0.12",
+        "@loopback/rest-explorer": "^7.0.12",
+        "@loopback/security": "^0.11.12",
+        "@loopback/service-proxy": "^7.0.12",
+        "@types/chai": "^5.2.1",
+        "bcrypt": "^5.1.1",
+        "couchbase": "^3.0.0",
+        "jsonwebtoken": "^9.0.2",
+        "loopback-connector-couchbase": "^1.0.6",
+        "ts-node": "^10.9.2",
+        "tslib": "^2.0.0",
+        "uuid": "^11.1.0"
+    },
+    "devDependencies": {
+        "@cucumber/cucumber": "^10.9.0",
+        "@loopback/build": "^11.0.10",
+        "@loopback/eslint-config": "^15.0.5",
+        "@loopback/testlab": "^7.0.11",
+        "@types/bcrypt": "^5.0.2",
+        "@types/jsonwebtoken": "^9.0.9",
+        "@types/node": "^16.18.126",
+        "chai": "^5.2.0",
+        "eslint": "^8.57.1",
+        "source-map-support": "^0.5.21",
+        "typescript": "~5.2.2"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json.schemastore.org/tsconfig",
+    "extends": "@loopback/build/config/tsconfig.common.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDir": "src",
+        "baseUrl": ".",
+        "paths": {
+            "shared/*": ["../shared/src/*"]
+        }
+    },
+    "include": ["src"],
+    "references": [
+        {
+            "path": "../shared/tsconfig.cjs.json"
+        }
+    ]
+}

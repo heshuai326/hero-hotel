@@ -1,0 +1,16 @@
+{
+    "name": "shared",
+    "version": "1.0.0",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/types/index.d.ts",
+    "scripts": {
+        "clean": "tsc -b --clean && rimraf dist",
+        "lint": "eslint -c ../../.eslintrc.js --ext .ts --fix --max-warnings 0 src",
+        "format": "prettier --write . && npm run lint"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": ""
+}
