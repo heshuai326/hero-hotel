@@ -133,11 +133,17 @@ tableSize
 	* npm rebuild couchbase
 	* npm install couchbase --build-from-source 二进制安装
 2. run in docker in order to keep enivronment same 
-   docker run -ti --rm  -v /Users/heand/workspace/learn/hero-hotel:/app -p  3001:3001 node:18.8 bash
+   run in docker in order to keep enivronment same 
+   * docker run -ti --rm  -v /Users/heand/workspace/learn/hero-hotel:/app -p 3001:3001 -p 3001:3001 --platform=linux/amd64 node:16.6 bash 
+   (--platform=linux/amd64 is for mac m1 m2)
+   * apt-get update
+   * apt-get install -y python3 python3-pip
+   * npm install
+   * npm run start
 3. couchbase 3 node 16 can resolve the issue
 
 
 - can be improved points(next steps)
-- couchbase connection use lb4 recommended
-- employee login and auth
-- more test case use cucumber
+1. couchbase connection use lb4 recommended
+2. employee login and auth
+3. more test case use cucumber
